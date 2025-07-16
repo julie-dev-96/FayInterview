@@ -4,6 +4,8 @@ Thank you for checking out my app! It was fun to work on, and I would love any a
 
 ## Video Recording
 
+I showed the app off in the first 3 minutes but I wanted to add some extra time to go over some areas of the code!
+
 https://github.com/user-attachments/assets/ef3141bf-4573-4bcd-bce4-fa3dae2edeb9
 
 ## Time Tracker
