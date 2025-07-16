@@ -4,7 +4,7 @@ Thank you for checking out my app! It was fun to work on, and I would love any a
 
 ## Video Recording
 
-TBA
+https://github.com/user-attachments/assets/ef3141bf-4573-4bcd-bce4-fa3dae2edeb9
 
 ## Time Tracker
 
