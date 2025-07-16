@@ -53,11 +53,6 @@
 			path = FayInterviewTests;
 			sourceTree = "<group>";
 		};
-		E7CC97D82E205D4D00F78411 /* FayInterviewUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = FayInterviewUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +85,6 @@
 			children = (
 				E7CC97C02E205D4B00F78411 /* FayInterview */,
 				E7CC97CE2E205D4D00F78411 /* FayInterviewTests */,
-				E7CC97D82E205D4D00F78411 /* FayInterviewUITests */,
 				E7CC97BF2E205D4B00F78411 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -165,9 +159,6 @@
 			);
 			dependencies = (
 				E7CC97D72E205D4D00F78411 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				E7CC97D82E205D4D00F78411 /* FayInterviewUITests */,
 			);
 			name = FayInterviewUITests;
 			packageProductDependencies = (
