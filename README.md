@@ -12,7 +12,7 @@ https://github.com/user-attachments/assets/ef3141bf-4573-4bcd-bce4-fa3dae2edeb9
 
 These are very much estimates. I've included below a more detailed breakdown of how I spent my time, but I still wasn't 100% accurate as I would need to pause for personal matters from doing this outside of my normal working hours.
 
-Estimates include: UI implentations, API implementations and tests
+Estimates include: UI implementations, API implementations and tests
 
 - Login screen: 3 hours
 - Appointments screen: 10 hours
