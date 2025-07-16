@@ -1,0 +1,6 @@
+mockolo \
+   --sourcedirs "FayInterview" \
+   --destination "FayInterviewTests/Mocks/GeneratedMocks.swift" \
+   -i "FayInterview"
+
+Including the command I used in this txt file so interviewers can see how I generated my mocks using Mockolo.
