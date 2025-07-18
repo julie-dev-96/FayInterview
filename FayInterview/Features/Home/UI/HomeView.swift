@@ -10,8 +10,12 @@ import SwiftUI
 struct HomeView: View {
     @State private var state: HomeState
 
-    init(appointmentsStore: any AppointmentsStoring) {
+    init(
+        homeRouter: HomeRouting,
+        appointmentsStore: AppointmentsStoring
+    ) {
         self.state = HomeState(
+            homeRouter: homeRouter,
             appointmentsStore: appointmentsStore
         )
     }
@@ -27,7 +31,9 @@ struct HomeView: View {
                     content: {
                         switch tab {
                         case .appointments:
+                            let appointmentsRouter = AppointmentsRouter(path: state.homeRouter.path)
                             AppointmentsView(
+                                appointmentsRouter: appointmentsRouter,
                                 appointmentsStore: state.appointmentsStore
                             )
                         case .chat:
@@ -69,6 +75,7 @@ struct HomeView: View {
 }
 
 #Preview {
+    @Previewable @State var path: [Route] = []
     let upcomingAppointments: [Appointment] = [
         Appointment.preview(
             start: DateComponents(year: 2025, month: 11, day: 8, hour: 11),
@@ -105,6 +112,7 @@ struct HomeView: View {
     )
 
     HomeView(
+        homeRouter: HomeRouter(path: $path),
         appointmentsStore: appointmentsStore
     )
 }

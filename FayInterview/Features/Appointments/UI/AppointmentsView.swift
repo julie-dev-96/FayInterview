@@ -12,9 +12,11 @@ struct AppointmentsView: View {
     @State private var state: AppointmentsState
 
     init(
+        appointmentsRouter: AppointmentsRouting,
         appointmentsStore: AppointmentsStoring
     ) {
         self.state = AppointmentsState(
+            appointmentsRouter: appointmentsRouter,
             appointmentsStore: appointmentsStore
         )
     }
@@ -97,6 +99,7 @@ struct AppointmentsView: View {
 }
 
 #Preview {
+    @Previewable @State var path: [Route] = []
     let upcomingAppointments: [Appointment] = [
         Appointment.preview(
             start: DateComponents(year: 2025, month: 11, day: 8, hour: 11),
@@ -136,6 +139,7 @@ struct AppointmentsView: View {
         DesignColor.Background.primary
             .ignoresSafeArea()
         AppointmentsView(
+            appointmentsRouter: AppointmentsRouter(path: $path),
             appointmentsStore: store
         )
     }
