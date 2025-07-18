@@ -33,14 +33,17 @@ final class AppointmentsState {
 
     // MARK: Private Properties
 
+    private let appointmentsRouter: AppointmentsRouting
     private let appointmentsStore: AppointmentsStoring
 
     // MARK: Initial State
 
     init(
+        appointmentsRouter: AppointmentsRouting,
         appointmentsStore: AppointmentsStoring
     ) {
         self.selectedTab = .upcoming
+        self.appointmentsRouter = appointmentsRouter
         self.appointmentsStore = appointmentsStore
 
         self.shouldShowErrorAlert = false
@@ -80,8 +83,7 @@ final class AppointmentsState {
     }
 
     private func navigateToNewAppointment() {
-        // TODO: Navigate to New Appointment
-        print("Navigate to New Appointment")
+        appointmentsRouter.navigateToCreateAppointment()
     }
 
     private func handleTabSelected(_ tab: AppointmentTab) {

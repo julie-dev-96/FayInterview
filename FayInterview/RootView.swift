@@ -14,6 +14,7 @@ enum RootScreen {
 }
 
 struct RootView: View {
+    @State private var appRouter = AppRouter()
     @State private var appointmentsStore: AppointmentsStore = .init()
     @State private var authStore = AuthStore(authStatus: .needsAuth)
     @State private var hasShownWelcomeScreen = false
@@ -47,9 +48,19 @@ struct RootView: View {
             )
 
         case .home:
-            HomeView(
-                appointmentsStore: appointmentsStore
-            )
+            NavigationStack(path: $appRouter.path) {
+                let homeRouter: HomeRouter = .init(path: $appRouter.path)
+                HomeView(
+                    homeRouter: homeRouter,
+                    appointmentsStore: appointmentsStore
+                )
+                .navigationDestination(for: Route.self) { route in
+                    switch route {
+                    case .createAppointment:
+                        Text("Create Appointment")
+                    }
+                }
+            }
 
         case .welcome:
             WelcomeView(

@@ -17,11 +17,13 @@ final class HomeState {
     let tabs: [HomeTab]
     var selectedTab: HomeTab
 
+    var homeRouter: HomeRouting
     let appointmentsStore: AppointmentsStoring
 
     // MARK: Initial State
 
     init(
+        homeRouter: HomeRouting,
         appointmentsStore: AppointmentsStoring
     ) {
         // Not using .allCases as that would implicitly decide order of UI.
@@ -29,6 +31,7 @@ final class HomeState {
         self.tabs = [.appointments, .chat, .journal, .profile]
         self.selectedTab = HomeTab.appointments
 
+        self.homeRouter = homeRouter
         self.appointmentsStore = appointmentsStore
     }
 }
