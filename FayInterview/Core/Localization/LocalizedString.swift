@@ -21,7 +21,9 @@ public enum LocalizedString {
         static let fetchAppointmentsErrorMessage = String(localized: "appointments.fetchAppointmentsErrorMessage")
         static let header = String(localized: "appointments.header")
         static let joinButton = String(localized: "appointments.joinButton")
+        static let noPastAppointments = String(localized: "appointments.noPastAppointments")
         static let pastTab = String(localized: "appointments.pastTab")
+        static let scheduleFirstAppointment = String(localized: "appointments.scheduleFirstAppointment")
         static let upcomingTab = String(localized: "appointments.upcomingTab")
     }
 

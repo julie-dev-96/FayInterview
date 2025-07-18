@@ -11,15 +11,18 @@ struct AppointmentsCardListView: View {
     let isUpcomingAppointments: Bool
     let appointments: [Appointment]
     let onNearestAppointmentTapped: (() -> Void)?
+    let onScheduleFirstAppointmentTapped: (() -> Void)?
 
     init(
         isUpcomingAppointments: Bool,
         appointments: [Appointment],
-        onNearestAppointmentTapped: (() -> Void)? = nil
+        onNearestAppointmentTapped: (() -> Void)? = nil,
+        onScheduleFirstAppointmentTapped: (() -> Void)? = nil
     ) {
         self.isUpcomingAppointments = isUpcomingAppointments
         self.appointments = appointments
         self.onNearestAppointmentTapped = onNearestAppointmentTapped
+        self.onScheduleFirstAppointmentTapped = onScheduleFirstAppointmentTapped
     }
 
     var body: some View {
@@ -40,6 +43,30 @@ struct AppointmentsCardListView: View {
         }
         .listStyle(.plain)
         .padding(.vertical, -DesignPadding.small)
+        .overlay(emptyAppointmentsView)
+    }
+
+    @ViewBuilder
+    private var emptyAppointmentsView: some View {
+        if isUpcomingAppointments && appointments.isEmpty {
+            Button(action: { onScheduleFirstAppointmentTapped?() }) {
+                Text(LocalizedString.Appointments.scheduleFirstAppointment)
+            }
+            .font(DesignFont.titleH1)
+            .foregroundStyle(DesignColor.Interactive.invertedEnabled)
+            .padding(DesignPadding.large)
+            .background(DesignColor.Interactive.primaryEnabled)
+            .clipShape(.rect(
+                cornerSize: .init(
+                    width: DesignPadding.small,
+                    height: DesignPadding.small
+                )
+            ))
+        } else if appointments.isEmpty {
+            Text(LocalizedString.Appointments.noPastAppointments)
+                .font(DesignFont.caption)
+                .foregroundStyle(DesignColor.Text.subtle)
+        }
     }
 }
 
@@ -68,6 +95,16 @@ struct AppointmentsCardListView: View {
     )
 }
 
+#Preview("Empty Upcoming Appointments") {
+    AppointmentsCardListView(
+        isUpcomingAppointments: true,
+        appointments: [],
+        onScheduleFirstAppointmentTapped: {
+            print("onScheduleFirstAppointmentTapped")
+        }
+    )
+}
+
 #Preview("Past Appointments") {
     let appointments: [Appointment] = [
         Appointment.preview(
@@ -84,5 +121,12 @@ struct AppointmentsCardListView: View {
     AppointmentsCardListView(
         isUpcomingAppointments: false,
         appointments: appointments
+    )
+}
+
+#Preview("Empty Past Appointments") {
+    AppointmentsCardListView(
+        isUpcomingAppointments: false,
+        appointments: []
     )
 }

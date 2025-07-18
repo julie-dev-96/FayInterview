@@ -61,10 +61,14 @@ struct AppointmentsView: View {
                 case .upcoming:
                     AppointmentsCardListView(
                         isUpcomingAppointments: true,
-                        appointments: state.sortedAppointments.upcoming
-                    ) {
-                        state.send(.joinAppointmentTapped)
-                    }
+                        appointments: state.sortedAppointments.upcoming,
+                        onNearestAppointmentTapped: {
+                            state.send(.joinAppointmentTapped)
+                        },
+                        onScheduleFirstAppointmentTapped: {
+                            state.send(.scheduleFirstAppointmentTapped)
+                        }
+                    )
                 }
             }
         }
@@ -96,7 +100,7 @@ struct AppointmentsView: View {
     }
 }
 
-#Preview {
+#Preview("Appointments") {
     let upcomingAppointments: [Appointment] = [
         Appointment.preview(
             start: DateComponents(year: 2025, month: 11, day: 8, hour: 11),
@@ -130,6 +134,21 @@ struct AppointmentsView: View {
     let store: AppointmentsStore = .preview(
         hasFetchedAppointments: false,
         appointments: upcomingAppointments + pastAppointments
+    )
+
+    ZStack {
+        DesignColor.Background.primary
+            .ignoresSafeArea()
+        AppointmentsView(
+            appointmentsStore: store
+        )
+    }
+}
+
+#Preview("No Appointments") {
+    let store: AppointmentsStore = .preview(
+        hasFetchedAppointments: true,
+        appointments: []
     )
 
     ZStack {
