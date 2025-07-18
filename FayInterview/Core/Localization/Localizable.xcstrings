@@ -103,6 +103,23 @@
         }
       }
     },
+    "appointments.noPastAppointments" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No Past Appointments"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aucun rendez-vous passé"
+          }
+        }
+      }
+    },
     "appointments.pastTab" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -116,6 +133,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Passé"
+          }
+        }
+      }
+    },
+    "appointments.scheduleFirstAppointment" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schedule your first Appointment"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Planifiez votre premier rendez-vous"
           }
         }
       }

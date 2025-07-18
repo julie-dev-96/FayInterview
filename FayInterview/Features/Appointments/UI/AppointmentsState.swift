@@ -61,6 +61,8 @@ final class AppointmentsState {
             joinAppointment()
         case .dismissErrorAlert(let retry):
             handleDismissErrorAlert(retry: retry)
+        case .scheduleFirstAppointmentTapped:
+            navigateToNewAppointment()
         }
     }
 
@@ -118,6 +120,7 @@ enum AppointmentsIntent {
     case newAppointmentHeaderTapped
     case tabSelected(AppointmentTab)
     case joinAppointmentTapped
+    case scheduleFirstAppointmentTapped
     case dismissErrorAlert(retry: Bool)
 }
 
